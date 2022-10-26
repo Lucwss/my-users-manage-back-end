@@ -3,37 +3,26 @@ const Services = require('./Services')
 
 class RoleServices extends Services {
    constructor() {
-      super('User')
+      super('UserData')
    }
 
-   async getUsers() {
-      return await db[this.modelName].findAll({
-         include: [
-            {
-               model: db.Role,
-               attributes: ['id', 'name']
-            },
-            {
-               model: db.UserData,
-               attributes: ['id', 'cpf', 'birthday', 'gender'],
-            },
-         ]
-      })
+   async getUserData(user_id) {
+      return await db[this.modelName].findAll({ where: { user_id: Number(user_id) } })
    }
 
-   async createUser(data) {
+   async createUserData(data) {
       return await db.sequelize.transaction(async trans => {
          return await super.createRegisters(data, { transaction: trans })
       })
    }
 
-   async updateUser(data, id) {
+   async updateUserData(data, id) {
       return await db.sequelize.transaction(async trans => {
          return await super.updateRegisters(data, id, { transaction: trans })
       })
    }
 
-   async deleteUser(id) {
+   async deleteUserData(id) {
       return await db.sequelize.transaction(async trans => {
          return await super.deleteRegisters(id, { transaction: trans })
       })

@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
          this.belongsTo(models.Role, {
             foreignKey: 'role_id'
          })
+
+         this.hasOne(models.UserData, {
+            foreignKey: 'user_id'
+         })
       }
    }
    User.init({
@@ -30,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       role: DataTypes.STRING
    }, {
       sequelize,
+      paranoid: true,
       modelName: 'User',
    },
       (async () => {

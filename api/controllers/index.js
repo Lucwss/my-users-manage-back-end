@@ -1,5 +1,7 @@
 const roleController = require('./roleController')
+const userController = require('./userController')
 
 module.exports = {
-   roleController: roleController
+   roleController: roleController,
+   userController: userController
 }

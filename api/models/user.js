@@ -18,11 +18,23 @@ module.exports = (sequelize, DataTypes) => {
    User.init({
       name: DataTypes.STRING,
       active: DataTypes.BOOLEAN,
-      email: DataTypes.STRING,
+      email: {
+         type: DataTypes.STRING,
+         unique: true,
+         validate: {
+            isEmail: {
+               msg: 'Invalid type email sent'
+            }
+         }
+      },
       role: DataTypes.STRING
    }, {
       sequelize,
       modelName: 'User',
-   });
+   },
+      (async () => {
+         await sequelize.sync()
+      })()
+   );
    return User;
 };

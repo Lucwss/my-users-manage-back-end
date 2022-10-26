@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser')
 const roles = require('./rolesRoutes')
+const users = require('./usersRoutes')
 
 const routes = (app) => {
 
@@ -7,7 +8,8 @@ const routes = (app) => {
 
    app.use(
       bodyParser.json(),
-      roles
+      roles,
+      users
    )
 }
 

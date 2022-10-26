@@ -1,5 +1,7 @@
 const RoleServices = require('./RolesServices')
+const UserServices = require('./UsersServices')
 
 module.exports = {
-   RoleServices: RoleServices
+   RoleServices: RoleServices,
+   UserServices: UserServices
 }

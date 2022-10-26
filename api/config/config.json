@@ -2,7 +2,7 @@
   "development": {
     "username": "lucas",
     "password": "M@nu2002",
-    "database": "courses_schools",
+    "database": "courses_school",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser')
 const roles = require('./rolesRoutes')
-const users = require('./rolesRoutes copy')
+const users = require('./usersRoutes')
 const usersData = require('./usersDataRoutes')
 
 const routes = (app) => {
